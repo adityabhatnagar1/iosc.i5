@@ -301,9 +301,12 @@ ul {
 .hero-img-wrap {
   position: relative; /* add this */
   width: 100%;
-  height: 240px;
+  height: 280px;
   overflow: hidden;
   margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-img-wrap .hero-logo {
@@ -530,7 +533,7 @@ html {
     padding: 20px 0 0;
   }
   .hero-img-wrap {
-    height: 200px;
+    height: 220px;
     margin-bottom: 28px;
   }
   .hero-img-wrap .hero-logo {
@@ -595,10 +598,10 @@ html {
     font-size: 22px;
   }
   .hero-img-wrap {
-    height: 170px;
+    height: 190px;
   }
-  .socket.i5-loader {
-    transform: scale(0.65);
+  .ghost-duo {
+    transform: scale(0.6);
   }
   .hero-img-wrap .hero-logo {
     width: 140px;
@@ -923,245 +926,449 @@ html {
   justify-content: center;
 }
 
-/* Loader animation — hex socket, recolored to site's green ("--red" var), no background */
-.socket.i5-loader {
-  width: 150px;
-  height: 150px;
+/* Ghost duo animation */
+.ghost-duo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+.ghost-anim {
   position: relative;
+  scale: 0.8;
 }
-.socket .gel {
+.ghost-grid {
+  animation: ghostUpNDown infinite 0.5s;
+  position: relative;
+  width: 140px;
+  height: 140px;
+  display: grid;
+  grid-template-columns: repeat(14, 1fr);
+  grid-template-rows: repeat(14, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  grid-template-areas:
+    "a1  a2  a3  a4  a5  top0  top0  top0  top0  a10 a11 a12 a13 a14"
+    "b1  b2  b3  top1 top1 top1 top1 top1 top1 top1 top1 b12 b13 b14"
+    "c1 c2 top2 top2 top2 top2 top2 top2 top2 top2 top2 top2 c13 c14"
+    "d1 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 d14"
+    "e1 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 e14"
+    "f1 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 f14"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "st0 st0 an4 st1 an7 st2 an10 an10 st3 an13 st4 an16 st5 st5"
+    "an1 an2 an3 an5 an6 an8 an9 an9 an11 an12 an14 an15 an17 an18";
+}
+@keyframes ghostUpNDown {
+  0%,
+  49% {
+    transform: translateY(0px);
+  }
+  50%,
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+.top0 {
+  grid-area: top0;
+}
+.top1 {
+  grid-area: top1;
+}
+.top2 {
+  grid-area: top2;
+}
+.top3 {
+  grid-area: top3;
+}
+.top4 {
+  grid-area: top4;
+}
+.st0 {
+  grid-area: st0;
+}
+.st1 {
+  grid-area: st1;
+}
+.st2 {
+  grid-area: st2;
+}
+.st3 {
+  grid-area: st3;
+}
+.st4 {
+  grid-area: st4;
+}
+.st5 {
+  grid-area: st5;
+}
+.an1 {
+  grid-area: an1;
+}
+.an2 {
+  grid-area: an2;
+}
+.an3 {
+  grid-area: an3;
+}
+.an4 {
+  grid-area: an4;
+}
+.an5 {
+  grid-area: an5;
+}
+.an6 {
+  grid-area: an6;
+}
+.an7 {
+  grid-area: an7;
+}
+.an8 {
+  grid-area: an8;
+}
+.an9 {
+  grid-area: an9;
+}
+.an10 {
+  grid-area: an10;
+}
+.an11 {
+  grid-area: an11;
+}
+.an12 {
+  grid-area: an12;
+}
+.an13 {
+  grid-area: an13;
+}
+.an14 {
+  grid-area: an14;
+}
+.an15 {
+  grid-area: an15;
+}
+.an16 {
+  grid-area: an16;
+}
+.an17 {
+  grid-area: an17;
+}
+.an18 {
+  grid-area: an18;
+}
+
+/* Blue ghost */
+.ghost-blue .top0,
+.ghost-blue .top1,
+.ghost-blue .top2,
+.ghost-blue .top3,
+.ghost-blue .top4,
+.ghost-blue .st0,
+.ghost-blue .st1,
+.ghost-blue .st2,
+.ghost-blue .st3,
+.ghost-blue .st4,
+.ghost-blue .st5 {
+  background-color: blue;
+}
+.ghost-blue .an1,
+.ghost-blue .an18,
+.ghost-blue .an6,
+.ghost-blue .an12,
+.ghost-blue .an7,
+.ghost-blue .an13,
+.ghost-blue .an8,
+.ghost-blue .an11 {
+  animation: ghostFlicker0Blue infinite 0.5s;
+}
+.ghost-blue .an2,
+.ghost-blue .an3,
+.ghost-blue .an4,
+.ghost-blue .an10,
+.ghost-blue .an9,
+.ghost-blue .an5,
+.ghost-blue .an15,
+.ghost-blue .an16,
+.ghost-blue .an17 {
+  animation: ghostFlicker1Blue infinite 0.5s;
+}
+@keyframes ghostFlicker0Blue {
+  0%,
+  49% {
+    background-color: blue;
+  }
+  50%,
+  100% {
+    background-color: transparent;
+  }
+}
+@keyframes ghostFlicker1Blue {
+  0%,
+  49% {
+    background-color: transparent;
+  }
+  50%,
+  100% {
+    background-color: blue;
+  }
+}
+.ghost-blue .eye,
+.ghost-blue .eye1 {
+  width: 40px;
+  height: 50px;
+  position: absolute;
+  top: 30px;
+}
+.ghost-blue .eye {
+  left: 20px;
+}
+.ghost-blue .eye1 {
+  right: 20px;
+}
+.ghost-blue .eye::before,
+.ghost-blue .eye1::before {
+  content: "";
+  background-color: blue;
+  width: 20px;
+  height: 50px;
+  transform: translateX(10px);
+  display: block;
+  position: absolute;
+}
+.ghost-blue .eye::after,
+.ghost-blue .eye1::after {
+  content: "";
+  background-color: blue;
+  width: 40px;
   height: 30px;
-  width: 30px;
-  transition: all 0.3s;
+  transform: translateY(10px);
+  display: block;
   position: absolute;
-  top: 50%;
-  left: 50%;
 }
-.socket .hex-brick {
-  background: var(--red);
-  width: 30px;
-  height: 17px;
+.ghost-blue .pupil,
+.ghost-blue .pupil1 {
+  width: 20px;
+  height: 20px;
+  background-color: #fcc78b;
   position: absolute;
-  top: 5px;
-  animation-name: fade00;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
+  top: 50px;
+  z-index: 1;
 }
-.socket .h2 {
-  transform: rotate(60deg);
+.ghost-blue .pupil {
+  left: 30px;
 }
-.socket .h3 {
-  transform: rotate(-60deg);
+.ghost-blue .pupil1 {
+  right: 30px;
 }
-.socket .center-gel {
-  margin-left: -15px;
-  margin-top: -15px;
-  animation-name: pulse00;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
+.ghost-blue .mouth1,
+.ghost-blue .mouth2,
+.ghost-blue .mouth3,
+.ghost-blue .mouth4,
+.ghost-blue .mouth5,
+.ghost-blue .mouthstart,
+.ghost-blue .mouthend {
+  width: 20px;
+  height: 10px;
+  background-color: #fcc78b;
+  position: absolute;
+  z-index: 1;
+  top: 100px;
 }
-.socket .c1 {
-  margin-left: -47px;
-  margin-top: -15px;
+.ghost-blue .mouthstart,
+.ghost-blue .mouthend {
+  width: 10px;
 }
-.socket .c2 {
-  margin-left: -31px;
-  margin-top: -43px;
+.ghost-blue .mouthstart {
+  left: 10px;
 }
-.socket .c3 {
-  margin-left: 1px;
-  margin-top: -43px;
+.ghost-blue .mouth1 {
+  top: 90px;
+  left: 20px;
 }
-.socket .c4 {
-  margin-left: 17px;
-  margin-top: -15px;
+.ghost-blue .mouth2 {
+  left: 40px;
 }
-.socket .c5 {
-  margin-left: -31px;
-  margin-top: 13px;
+.ghost-blue .mouth3 {
+  top: 90px;
+  left: 60px;
 }
-.socket .c6 {
-  margin-left: 1px;
-  margin-top: 13px;
+.ghost-blue .mouth4 {
+  left: 80px;
 }
-.socket .c7 {
-  margin-left: -63px;
-  margin-top: -43px;
+.ghost-blue .mouth5 {
+  top: 90px;
+  left: 100px;
 }
-.socket .c8 {
-  margin-left: 33px;
-  margin-top: -43px;
+.ghost-blue .mouthend {
+  left: 120px;
 }
-.socket .c9 {
-  margin-left: -15px;
-  margin-top: 41px;
+
+/* Red ghost */
+.ghost-red .top0,
+.ghost-red .top1,
+.ghost-red .top2,
+.ghost-red .top3,
+.ghost-red .top4,
+.ghost-red .st0,
+.ghost-red .st1,
+.ghost-red .st2,
+.ghost-red .st3,
+.ghost-red .st4,
+.ghost-red .st5 {
+  background-color: red;
 }
-.socket .c10 {
-  margin-left: -63px;
-  margin-top: 13px;
+.ghost-red .an1,
+.ghost-red .an18,
+.ghost-red .an6,
+.ghost-red .an12,
+.ghost-red .an7,
+.ghost-red .an13,
+.ghost-red .an8,
+.ghost-red .an11 {
+  animation: ghostFlicker0Red infinite 0.5s;
 }
-.socket .c11 {
-  margin-left: 33px;
-  margin-top: 13px;
+.ghost-red .an2,
+.ghost-red .an3,
+.ghost-red .an4,
+.ghost-red .an10,
+.ghost-red .an9,
+.ghost-red .an15,
+.ghost-red .an16,
+.ghost-red .an17 {
+  animation: ghostFlicker1Red infinite 0.5s;
 }
-.socket .c12 {
-  margin-left: -15px;
-  margin-top: -71px;
-}
-.socket .c13 {
-  margin-left: -47px;
-  margin-top: -71px;
-}
-.socket .c14 {
-  margin-left: 17px;
-  margin-top: -71px;
-}
-.socket .c15 {
-  margin-left: -47px;
-  margin-top: 41px;
-}
-.socket .c16 {
-  margin-left: 17px;
-  margin-top: 41px;
-}
-.socket .c17 {
-  margin-left: -79px;
-  margin-top: -15px;
-}
-.socket .c18 {
-  margin-left: 49px;
-  margin-top: -15px;
-}
-.socket .c19 {
-  margin-left: -63px;
-  margin-top: -99px;
-}
-.socket .c20 {
-  margin-left: 33px;
-  margin-top: -99px;
-}
-.socket .c21 {
-  margin-left: 1px;
-  margin-top: -99px;
-}
-.socket .c22 {
-  margin-left: -31px;
-  margin-top: -99px;
-}
-.socket .c23 {
-  margin-left: -63px;
-  margin-top: 69px;
-}
-.socket .c24 {
-  margin-left: 33px;
-  margin-top: 69px;
-}
-.socket .c25 {
-  margin-left: 1px;
-  margin-top: 69px;
-}
-.socket .c26 {
-  margin-left: -31px;
-  margin-top: 69px;
-}
-.socket .c28 {
-  margin-left: -95px;
-  margin-top: -43px;
-}
-.socket .c29 {
-  margin-left: -95px;
-  margin-top: 13px;
-}
-.socket .c30 {
-  margin-left: 49px;
-  margin-top: 41px;
-}
-.socket .c31 {
-  margin-left: -79px;
-  margin-top: -71px;
-}
-.socket .c32 {
-  margin-left: -111px;
-  margin-top: -15px;
-}
-.socket .c33 {
-  margin-left: 65px;
-  margin-top: -43px;
-}
-.socket .c34 {
-  margin-left: 65px;
-  margin-top: 13px;
-}
-.socket .c35 {
-  margin-left: -79px;
-  margin-top: 41px;
-}
-.socket .c36 {
-  margin-left: 49px;
-  margin-top: -71px;
-}
-.socket .c37 {
-  margin-left: 81px;
-  margin-top: -15px;
-}
-.socket .r1 {
-  animation-name: pulse00;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-delay: 0.2s;
-}
-.socket .r2 {
-  animation-name: pulse00;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-delay: 0.4s;
-}
-.socket .r3 {
-  animation-name: pulse00;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-delay: 0.6s;
-}
-.socket .r1 > .hex-brick {
-  animation-name: fade00;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-delay: 0.2s;
-}
-.socket .r2 > .hex-brick {
-  animation-name: fade00;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-delay: 0.4s;
-}
-.socket .r3 > .hex-brick {
-  animation-name: fade00;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-delay: 0.6s;
-}
-@keyframes pulse00 {
-  0% {
-    transform: scale(1);
+@keyframes ghostFlicker0Red {
+  0%,
+  49% {
+    background-color: red;
   }
-  50% {
-    transform: scale(0.01);
+  50%,
+  100% {
+    background-color: transparent;
+  }
+}
+@keyframes ghostFlicker1Red {
+  0%,
+  49% {
+    background-color: transparent;
+  }
+  50%,
+  100% {
+    background-color: red;
+  }
+}
+.ghost-red .eye {
+  width: 40px;
+  height: 50px;
+  position: absolute;
+  top: 30px;
+  left: 10px;
+}
+.ghost-red .eye::before {
+  content: "";
+  background-color: white;
+  width: 20px;
+  height: 50px;
+  transform: translateX(10px);
+  display: block;
+  position: absolute;
+}
+.ghost-red .eye::after {
+  content: "";
+  background-color: white;
+  width: 40px;
+  height: 30px;
+  transform: translateY(10px);
+  display: block;
+  position: absolute;
+}
+.ghost-red .eye1 {
+  width: 40px;
+  height: 50px;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+.ghost-red .eye1::before {
+  content: "";
+  background-color: white;
+  width: 20px;
+  height: 50px;
+  transform: translateX(10px);
+  display: block;
+  position: absolute;
+}
+.ghost-red .eye1::after {
+  content: "";
+  background-color: white;
+  width: 40px;
+  height: 30px;
+  transform: translateY(10px);
+  display: block;
+  position: absolute;
+}
+.ghost-red .pupil {
+  width: 20px;
+  height: 20px;
+  background-color: blue;
+  position: absolute;
+  top: 50px;
+  left: 10px;
+  z-index: 1;
+  animation: ghostEyesMovement infinite 3s;
+}
+.ghost-red .pupil1 {
+  width: 20px;
+  height: 20px;
+  background-color: blue;
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  z-index: 1;
+  animation: ghostEyesMovement infinite 3s;
+}
+@keyframes ghostEyesMovement {
+  0%,
+  49% {
+    transform: translateX(0px);
+  }
+  50%,
+  99% {
+    transform: translateX(10px);
   }
   100% {
-    transform: scale(1);
+    transform: translateX(0px);
   }
 }
-@keyframes fade00 {
-  0% {
-    background: var(--white);
+
+/* Shared shadow */
+.ghost-shadow {
+  background-color: black;
+  width: 140px;
+  height: 140px;
+  position: absolute;
+  border-radius: 50%;
+  transform: rotateX(80deg);
+  filter: blur(20px);
+  top: 80%;
+  animation: ghostShadowMovement infinite 0.5s;
+}
+@keyframes ghostShadowMovement {
+  0%,
+  49% {
+    opacity: 0.5;
   }
-  50% {
-    background: var(--red);
-  }
+  50%,
   100% {
-    background: var(--red);
+    opacity: 0.2;
   }
 }
+
 .ui-btn-outline {
   background: transparent;
   color: var(--black);
@@ -1528,8 +1735,8 @@ html {
   }
 }
 @media (max-width: 700px) {
-  .socket.i5-loader {
-    transform: scale(0.85);
+  .ghost-duo {
+    transform: scale(0.8);
   }
 
   /* Mobile nav: collapse links into a toggled dropdown panel */
